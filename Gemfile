@@ -33,6 +33,17 @@ group :development, :test do
   gem 'spring'
 end
 
+#database gem for devlopment
+group :development do
+  gem 'sqlite3'
+end  
+
+#datbase gem for production
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 #gems required to test
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

@@ -24,6 +24,6 @@ Things you may want to cover:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
 It is an externally usable API for a basic todo list application. This API will allow users to modify user accounts and todo items from the command line.
