@@ -12,12 +12,5 @@ RSpec.describe Item, :type => :model do
     expect(item.errors[:name]).not_to include("can't be blank")
   end  
 
-  it "is invalid with a duplicate item name" do
-    Item.create(name: 'organize books')
-    item = Item.new(name: 'organize books')
-    item.valid?
-    expect(item.errors[:name]).not_to include("has been already taken")
-  end  
-
-
+  
 end
