@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :item do
-    name "MyString"
+    association :list
+    description { Faker::Lorem.sentence }
     completed false
-    list nil
   end
 end

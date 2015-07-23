@@ -40,7 +40,7 @@ lists = List.all
 
 item = Item.create!(
   list: lists.sample,
-  name: Faker::Lorem.sentence,
+  description: Faker::Lorem.sentence,
   completed: false)
 end
 
