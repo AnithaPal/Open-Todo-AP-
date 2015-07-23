@@ -2,7 +2,7 @@ class Api::ItemsController < ApiController
   before_action :authenticated?
 
   def create
-    item = Item.create
+    item = Item.new(item_params)
 
     if item.save
       render json: item.to_json
