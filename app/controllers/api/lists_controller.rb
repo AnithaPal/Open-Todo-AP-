@@ -1,5 +1,4 @@
 class Api::ListsController < ApiController
-
   before_action :authenticated?
 
   def create
@@ -8,15 +7,13 @@ class Api::ListsController < ApiController
       render json: list.to_json
     else
       render json: {errors: list.errors.full_messages }, status: :unprocessable_entity
-    end    
-
+    end
   end
 
-private 
+private
+
   def list_params
     params.require(:list).permit(:name, :user_id)
-  end  
+  end
 
-
-
-end  
+end
