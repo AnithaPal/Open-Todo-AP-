@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :list do
-    name "MyString"
-    user nil
-  end
+    association :user
+    name { Faker::Lorem.sentence }
+  end 
 end
