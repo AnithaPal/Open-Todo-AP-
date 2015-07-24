@@ -7,9 +7,9 @@ RSpec.describe Item, :type => :model do
   end
 
   it "is invalid without an item name" do
-    item = build(:item, description: nil)
+    item = build(:item, description: "")
     item.valid?
-    expect(item.errors[:description]).not_to include("can't be blank")
+    expect(item.errors[:description]).to include("can't be blank")
   end
 
   

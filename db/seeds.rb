@@ -30,7 +30,16 @@ users = User.all
 
 list = List.create!(
   user: users.sample,
-  name: Faker::Lorem.sentence)
+  name: Faker::Lorem.sentence,
+  permission: 'private')
+end
+
+5.times do 
+
+list = List.create!(
+  user: users.sample,
+  name: Faker::Lorem.sentence,
+  permission: 'public')
 end
 
 
@@ -42,6 +51,14 @@ item = Item.create!(
   list: lists.sample,
   description: Faker::Lorem.sentence,
   completed: false)
+end
+
+10.times do
+
+item = Item.create!(
+  list: lists.sample,
+  description: Faker::Lorem.sentence,
+  completed: true)
 end
 
 puts "Seed finsihed"

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
      end
 
      resources :lists, only: [] do
-       resources :items, only: [:create]
+       resources :items, only: [:create, :update, :index]
      end
 
      resources :items, only: [:destroy]
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

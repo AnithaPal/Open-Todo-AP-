@@ -9,7 +9,7 @@ RSpec.describe List, :type => :model do
   it "is invalid without a list name" do
     list = build(:list, name: nil) 
     list.valid?
-    expect(list.errors[:name]).not_to include("can't be blank")
+    expect(list.errors[:name]).to include("can't be blank")
   end
 
   it "is invalid with a duplicate list name" do
