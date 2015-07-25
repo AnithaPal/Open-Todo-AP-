@@ -2,7 +2,6 @@ class Api::ItemsController < ApiController
   before_action :authenticated?
 
   def index 
-    p params
     list = List.find(params[:list_id])
     items = list.items
     render json: items, each_serializer: ItemSerializer
