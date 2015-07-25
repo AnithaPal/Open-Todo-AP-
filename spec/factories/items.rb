@@ -5,5 +5,6 @@ FactoryGirl.define do
     association :list
     description { Faker::Lorem.sentence }
     completed false
+    priority {Faker::Number.between(1, 5)}
   end
 end
