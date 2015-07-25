@@ -14,7 +14,6 @@ require 'faker'
     email: Faker::Internet.free_email,
     password: Faker::Lorem.characters(8))
   user.save!
-
 end
 
 user = User.new(
@@ -23,42 +22,38 @@ user = User.new(
     password: 'helloworld')
 user.save!
 
-
 users = User.all
 
 5.times do 
-
-list = List.create!(
-  user: users.sample,
-  name: Faker::Lorem.sentence,
-  permission: 'private')
+  list = List.create!(
+    user: users.sample,
+    name: Faker::Lorem.sentence,
+    permission: 'private')
 end
 
 5.times do 
-
-list = List.create!(
-  user: users.sample,
-  name: Faker::Lorem.sentence,
-  permission: 'public')
+  list = List.create!(
+    user: users.sample,
+    name: Faker::Lorem.sentence,
+    permission: 'public')
 end
-
 
 lists = List.all
 
-20.times do
-
-item = Item.create!(
-  list: lists.sample,
-  description: Faker::Lorem.sentence,
-  completed: false)
+10.times do
+  item = Item.create!(
+    list: lists.sample,
+    description: Faker::Lorem.sentence,
+    completed: false,
+    priority: Faker::Number.between(1, 5))
 end
 
-10.times do
-
-item = Item.create!(
-  list: lists.sample,
-  description: Faker::Lorem.sentence,
-  completed: true)
+5.times do
+  item = Item.create!(
+    list: lists.sample,
+    description: Faker::Lorem.sentence,
+    completed: true,
+    priority: Faker::Number.between(1, 5))
 end
 
 puts "Seed finsihed"
