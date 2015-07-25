@@ -1,6 +1,5 @@
 class Api::ItemsController < ApiController
   before_action :authenticated?
-  before_action :validate_priority, only: [:create, :update]
 
   def index 
     p params
@@ -32,14 +31,6 @@ class Api::ItemsController < ApiController
 
   private
 
-  def validate_priority
-    acceptable_priority = [1..5]
-
-    unless acceptable_priority.include?(params[:item][:priority])
-      render json: {errors: "priority value is not valid"}, status: :unprocessable_entity
-    end
-  end
-  
   def item_params
     params.require(:item).permit(:description, :completed, :priority)
   end
