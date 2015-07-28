@@ -18,7 +18,10 @@ class ApiController < ApplicationController
   private
 
   def authenticated?
-    authenticate_or_request_with_http_basic {|username, password| User.where(username: username, password_hash: BCrypt::Engine.hash_secret(password, user.password_salt).present?}
+    authenticate_or_request_with_http_basic do |username, password|
+      user = User.find_by(username: username)
+      User.where(username: username, password_hash: BCrypt::Engine.hash_secret(password, user.password_salt)).present?
+    end
   end
 
 end
