@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :list do
     association :user
     name { Faker::Lorem.sentence }
+    permission 'public'
   end 
 end
