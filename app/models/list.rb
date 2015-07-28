@@ -3,6 +3,6 @@ class List < ActiveRecord::Base
   has_many :items
 
   validates :name, presence: true, uniqueness: true
-  validates :permission, inclusion: { in: %w(public private open),
+  validates :permission, inclusion: { in: %w(public private),
     message: "%{It is not a valid permission value" }
 end
